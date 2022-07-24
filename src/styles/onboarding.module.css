@@ -1,0 +1,210 @@
+.onboarding-overlay {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.onboarding-container {
+  width: 65%;
+  height: 630px;
+  background-color: #fff;
+  display: flex;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  position: relative;
+}
+
+.onboarding-text-section {
+  background-color: #f9f9f9;
+  width: 45%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  -webkit-border-radius: 10px 0 0 10px;
+  -moz-border-radius: 10px 0 0 10px;
+  -ms-border-radius: 10px 0 0 10px;
+  -o-border-radius: 10px 0 0 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 0 0 50px;
+  position: relative;
+}
+
+.onboarding-text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 60%;
+}
+
+.text-header {
+  font-size: 32px;
+  white-space: nowrap;
+}
+
+.text-desc {
+  font-size: 22px;
+  text-align: justify;
+  line-height: 1.3;
+}
+
+.navigation-container {
+  width: calc(100% - 50px);
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+  position: absolute;
+  bottom: 70px;
+}
+
+.navigation {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 15px;
+  position: absolute;
+  left: calc(50% - 50px);
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.bullet {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: #555;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.bullet.selected {
+  transform: scale(1.4);
+  -webkit-transform: scale(1.4);
+  -moz-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  -o-transform: scale(1.4);
+  background-color: #01ca8a;
+}
+
+.onboarding-video-section {
+  position: relative;
+  background-color: #003971;
+  width: 60%;
+  border-radius: 0 10px 10px 0;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  -ms-border-radius: 0 10px 10px 0;
+  -o-border-radius: 0 10px 10px 0;
+  overflow: hidden;
+}
+
+.background-vidoe {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 10px 10px 0;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  -ms-border-radius: 0 10px 10px 0;
+  -o-border-radius: 0 10px 10px 0;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 56, 113, 0.7);
+}
+
+.arrow-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 0 50px 10px rgba(70, 70, 70, 0.2);
+  font-size: 20px;
+  color: #01ca8a;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.arrow-left {
+  left: -35px;
+}
+
+.arrow-right {
+  right: -35px;
+}
+
+.onboarding-video-section.last {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 200px 0 100px 0;
+  justify-content: space-between;
+}
+
+.onboarding-text.last {
+  color: #fff;
+  z-index: 1;
+}
+
+.text-header.last {
+  white-space: pre-line;
+  text-align: center;
+}
+
+.text-desc.last {
+  text-align: justify;
+  width: 80%;
+  margin: auto;
+}
+
+.link-button {
+  box-shadow: 0 0 70px 1px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
