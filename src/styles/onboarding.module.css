@@ -21,6 +21,11 @@
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   position: relative;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 }
 
 .onboarding-text-section {
@@ -35,8 +40,15 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 }
 
 .text-slider {
@@ -124,7 +136,10 @@
 }
 
 .onboarding-video-section {
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
   background-color: #003971;
   width: 60%;
   border-radius: 0 10px 10px 0;
@@ -133,6 +148,11 @@
   -ms-border-radius: 0 10px 10px 0;
   -o-border-radius: 0 10px 10px 0;
   overflow: hidden;
+  transition: width 0.5s ease-in-out, border-radius 0s ease-in 0.5s;
+  -webkit-transition: width 0.5s ease-in-out, border-radius 0s ease-in 0.5s;
+  -moz-transition: width 0.5s ease-in-out, border-radius 0s ease-in 0.5s;
+  -ms-transition: width 0.5s ease-in-out, border-radius 0s ease-in 0.5s;
+  -o-transition: width 0.5s ease-in-out, border-radius 0s ease-in 0.5s;
 }
 
 .background-video {
@@ -153,12 +173,13 @@
 }
 
 .video-overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 56, 113, 0.7);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0, 56, 113, 0.7);
 }
 
 .arrow-btn {
@@ -196,19 +217,42 @@
   right: -35px;
 }
 
+/* last classname is for the last slide (triggering collapsing animation */
+.onboarding-container.last {
+  width: 30%;
+}
+
+.onboarding-text-section.last {
+  border-radius: 10px;
+  width: 100%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
 .onboarding-video-section.last {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 200px 0 100px 0;
-  justify-content: space-between;
+  width: 100%;
+  z-index: 10;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .onboarding-text.last {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   color: #ffffff;
   z-index: 1;
   width: 100%;
   padding: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
 .text-header.last {
@@ -223,6 +267,16 @@
 }
 
 .link-button {
+  position: absolute;
   box-shadow: 0 0 70px 1px rgba(0, 0, 0, 0.3);
   z-index: 1;
+  bottom: 100px;
+  right: 50%;
+  transform: translateX(50%);
+  -webkit-transform: translateX(50%);
+  -moz-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  -o-transform: translateX(50%);
 }
+
+/* last classname is for the last slide (triggering collapsing animation */
