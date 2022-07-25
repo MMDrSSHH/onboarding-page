@@ -1,10 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import style from "../../styles/onboarding.module.css";
+// components
 import Button from "../button/Button";
-import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { onboardingData as data } from "../../data/data";
 import { Link } from "react-router-dom";
+// Styles
+import style from "../../styles/onboarding.module.css";
+// Icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+// data
+import { onboardingData as data } from "../../data/data";
 
 const Onboarding = () => {
   const [current, setCurrent] = useState(0);
@@ -13,31 +17,39 @@ const Onboarding = () => {
 
   useEffect(() => {
     if (sliderRef.current !== null) {
+      // Trigger sliding animation
       sliderRef.current.style.transform = `translateX(-${
         (100 / (data.length - 1)) * current
       }%)`;
     }
+    // reloading the video after every slide change
     videoRef.current.load();
   }, [current]);
 
+  // Slide to next
   const handleNext = () => {
     setCurrent((prev) => prev + 1);
   };
 
+  // Slide to previous
   const handlePrev = () => {
     setCurrent((prev) => prev - 1);
   };
 
+  // Slide to terget index
   const handleNavigate = (index) => {
     setCurrent(index);
   };
 
+  // JSX for first (n - 1) slides
   if (current !== data.length - 1) {
     return (
       <>
         <div className={style["onboarding-overlay"]}>
           <div className={style["onboarding-container"]}>
+            {/* Left side (text section) */}
             <div className={style["onboarding-text-section"]}>
+              {/* Slider container */}
               <div
                 className={style["text-slider"]}
                 ref={sliderRef}
@@ -54,10 +66,12 @@ const Onboarding = () => {
                   );
                 })}
               </div>
+              {/* Slider container */}
               <div className={style["navigation-container"]}>
                 <div onClick={handleNext} style={{ zIndex: "10" }}>
                   <Button text="NEXT" />
                 </div>
+                {/* Bullets for index navigating */}
                 <div className={style.navigation}>
                   {data.slice(0, data.length - 1).map((item, index) => (
                     <span
@@ -69,18 +83,24 @@ const Onboarding = () => {
                     ></span>
                   ))}
                 </div>
+                {/* Bullets for index navigating */}
               </div>
             </div>
+            {/* Left side (text section) */}
+            {/* Right side (video section) */}
             <div className={style["onboarding-video-section"]}>
               <video
                 className={style["background-video"]}
                 ref={videoRef}
                 autoPlay
                 loop
+                muted
               >
                 <source src={data[current].video} type="video/mp4" />
               </video>
             </div>
+            {/* Right side (video section) */}
+            {/* Slide navigation buttons */}
             {current > 0 ? (
               <button
                 onClick={handlePrev}
@@ -89,19 +109,20 @@ const Onboarding = () => {
                 <FontAwesomeIcon icon={faArrowLeft} />
               </button>
             ) : null}
-            {current !== data.length - 1 ? (
-              <button
-                onClick={handleNext}
-                className={`${style["arrow-right"]} ${style["arrow-btn"]}`}
-              >
-                <FontAwesomeIcon icon={faArrowRight} />
-              </button>
-            ) : null}
+            <button
+              onClick={handleNext}
+              className={`${style["arrow-right"]} ${style["arrow-btn"]}`}
+            >
+              <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+            {/* Slide navigation buttons */}
           </div>
         </div>
       </>
     );
-  } else {
+  }
+  // JSX for last slide (data item)
+  else {
     return (
       <>
         <div className={style["onboarding-overlay"]}>
@@ -119,6 +140,7 @@ const Onboarding = () => {
                 ref={videoRef}
                 autoPlay
                 loop
+                muted
               >
                 <source src="/videos/video-1.mp4" type="video/mp4" />
               </video>
@@ -135,22 +157,14 @@ const Onboarding = () => {
                 <Button text="START WRITING" />
               </Link>
             </div>
-            {current > 0 ? (
-              <button
-                onClick={handlePrev}
-                className={`${style["arrow-left"]} ${style["arrow-btn"]}`}
-              >
-                <FontAwesomeIcon icon={faArrowLeft} />
-              </button>
-            ) : null}
-            {current !== data.length - 1 ? (
-              <button
-                onClick={handleNext}
-                className={`${style["arrow-right"]} ${style["arrow-btn"]}`}
-              >
-                <FontAwesomeIcon icon={faArrowRight} />
-              </button>
-            ) : null}
+            {/* Slide navigation button */}
+            <button
+              onClick={handlePrev}
+              className={`${style["arrow-left"]} ${style["arrow-btn"]}`}
+            >
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </button>
+            {/* Slide navigation buttons */}
           </div>
         </div>
       </>

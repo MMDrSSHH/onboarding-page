@@ -1,7 +1,9 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+// pages
 import Home from "./pages/Home";
 import OnboardingPage from "./pages/OnboardingPage";
+// components
+import { Routes, Route, Navigate } from "react-router-dom";
 
 const App = () => {
   return (

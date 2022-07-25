@@ -58,6 +58,7 @@
   flex-direction: column;
   gap: 30px;
   width: 100%;
+  color: #5d5d5d;
 }
 
 .text-header {
@@ -204,7 +205,7 @@
 }
 
 .onboarding-text.last {
-  color: #fff;
+  color: #ffffff;
   z-index: 1;
   width: 100%;
   padding: 0;
